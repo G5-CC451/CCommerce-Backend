@@ -20,15 +20,7 @@ mongoose
 // middlewares
 app.use(morgan("dev"));
 app.use(express.json({ limit: "2mb" }));
-app.use(
-  cors({
-    origin: [
-      "http://localhost:3000",
-      "https://cc-ommerce-frontend.vercel.app/",
-    ],
-    optionsSuccessStatus: 200,
-  })
-);
+app.use(cors());
 
 // routes middleware
 readdirSync("./routes").map((r) => app.use("/api", require("./routes/" + r)));
