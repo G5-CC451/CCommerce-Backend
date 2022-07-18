@@ -20,7 +20,7 @@ mongoose
 // middlewares
 app.use(morgan("dev"));
 app.use(express.json({ limit: "2mb" }));
-app.use(cors());
+app.use(cors({ methods: ["POST", "GET", "HEAD"] }));
 
 // routes middleware
 readdirSync("./routes").map((r) => app.use("/api", require("./routes/" + r)));
